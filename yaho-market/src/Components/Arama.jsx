@@ -23,7 +23,7 @@ const Arama = ({ setResult ,darkMode}) => {
         darkMode == "true" ? "dark" : ""
       }`}>
       <form onSubmit={(e) => request(e)}>
-        <h1 className="font-bold text-green-700 mt-5 text-2xl">Hisse Haberleri</h1>
+        <h1 className="font-bold text-orange-500 mt-5 text-2xl">Hisse Haberleri</h1>
         <label>
           <input placeholder="Tesla,Amazon vb" className={`border-black border-2 rounded p-1 mt-3 mr-2 text-center font-medium italic ${
       darkMode == true ? "inputdark" : ""
