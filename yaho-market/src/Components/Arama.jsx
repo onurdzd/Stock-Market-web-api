@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { PORT } from "../../config/config";
 
-const Arama = ({ setResult ,darkMode}) => {
+const Arama = ({ setResult ,darkMode,loading,setLoading,setHisseKodu}) => {
   const [data, setData] = useState();
 
   const request = async (e) => {
@@ -14,6 +14,7 @@ const Arama = ({ setResult ,darkMode}) => {
         },
       })
       .then((res) => {
+        setLoading(false)
         setResult(res.data.message);
       })
       .catch((err) => console.log(err));
@@ -29,7 +30,7 @@ const Arama = ({ setResult ,darkMode}) => {
       darkMode == true ? "inputdark" : ""
     }`} onChange={(e) => setData(e.target.value)}></input>
         </label>
-        <button type="submit" className="bg-green-500 border-2 border-black rounded p-1 font-semibold">Getir</button>
+        <button type="submit" className="bg-orange-600 border-2 border-black rounded p-1 font-semibold" onClick={()=>{setLoading(!loading);setHisseKodu("");setResult([])}}>Getir</button>
       </form>
     </div>
   );
