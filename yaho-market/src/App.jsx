@@ -1,45 +1,71 @@
-import axios from "axios";
 import { useState } from "react";
-import { PORT } from "../config/config";
 import News from "./Components/News";
+import Arama from "./Components/Arama";
+import { TiWeatherNight } from "react-icons/ti";
+import { BsSun } from "react-icons/bs";
 
 function App() {
-  const [data, setData] = useState();
   const [result, setResult] = useState([]);
+  const [darkMode, setDarkMode] = useState(
+    JSON.parse(localStorage.getItem("theme"))
+  );
 
-  const request = async (e) => {
-    e.preventDefault();
-    await axios
-      .get(`http://localhost:${PORT}/api/ask/${data}`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      .then((res) => {
-        setResult(res.data.message);
-      })
-      .catch((err) => console.log(err));
+  const localTheme = () => {
+    localStorage.setItem("theme", JSON.stringify(!darkMode));
   };
+  console.log(darkMode)
+  const rootClassName=()=>{
+    if (document.getElementById("root").className!="dark"){
+      document.getElementById("root").classList.add('dark');
+    }else{
+      document.getElementById("root").classList.remove('dark');
+    }
+  }
   console.log(result);
   return (
-    <>
-      <div>
-        <form onSubmit={(e) => request(e)}>
-          <label>
-            Hisse İsmi
-            <input onChange={(e) => setData(e.target.value)}></input>
-          </label>
-          <button type="submit">Getir</button>
-        </form>
-        <div>
-          {result.map((item, i) => 
-            <div key={i}>
-            <News item={item}></News>
-            </div>
-          )}
-        </div>
+    <div className={`bg-white ${darkMode == true ? "dark" : ""}`}>
+      <div className="text-right pt-3 pr-5 text-xl "><button
+        onClick={() => {
+          setDarkMode(!darkMode);
+          localTheme();
+          rootClassName();
+        }}
+      >
+        {darkMode == true ? <TiWeatherNight></TiWeatherNight> : <BsSun></BsSun>}
+      </button>
       </div>
-    </>
+      <div
+        className={`flex flex-col items-center w-3/4 my-0 mx-auto ${
+          darkMode == true ? "dark" : ""
+        }`}
+      >
+        <div>
+          <Arama
+            result={result}
+            setResult={setResult}
+            darkMode={darkMode}
+          ></Arama>
+        </div>
+        <div className="mb-2">
+          <span className="text-blue-700 font-semibold italic">
+            Hisse Kodu:{" "}
+          </span>
+          <span className="italic">
+            {result.length > 0 && result[4].relatedTickers}
+          </span>
+        </div>
+        {result.map((item, i) => (
+          <div
+            key={i}
+            className={`my-2 text-center border-2 w-full py-5 rounded-md bg-green-100 ${
+              darkMode == true ? "dark" : ""
+            }`}
+          >
+            <News item={item} darkMode={darkMode}></News>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
