@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { PORT } from "../../config/config";
 
-const Arama = ({ setResult ,darkMode,loading,setLoading,setHisseKodu}) => {
+const Arama = ({ setResult ,darkMode,loading,setLoading,setHisseKodu,setIlkArama}) => {
   const [data, setData] = useState();
 
   const request = async (e) => {
@@ -20,17 +20,17 @@ const Arama = ({ setResult ,darkMode,loading,setLoading,setHisseKodu}) => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className={`mb-5 text-center font-roboto ${
+    <div className={`mb-5 text-center font-roboto w-full ${
         darkMode == "true" ? "dark" : ""
       }`}>
-      <form onSubmit={(e) => request(e)}>
-        <h1 className="font-bold text-orange-500 mt-5 text-2xl">Hisse Haberleri</h1>
+      <form  onSubmit={(e) => request(e)}>
         <label>
-          <input placeholder="Tesla,Amazon vb" className={`border-black border-2 rounded p-1 mt-3 mr-2 text-center font-medium italic ${
+          <input placeholder="Tesla,Amazon vb" className={`border-black border-2 block w-full mb-2 rounded p-1 text-center font-medium italic ${
       darkMode == true ? "inputdark" : ""
-    }`} onChange={(e) => setData(e.target.value)}></input>
+    }`} onChange={(e) => setData(e.target.value)} value={data}></input>
         </label>
-        <button type="submit" className="bg-orange-600 border-2 border-black rounded p-1 font-semibold" onClick={()=>{setLoading(!loading);setHisseKodu("");setResult([])}}>Getir</button>
+        <button type="submit" className="bg-orange-600 border-2 border-black rounded p-2 font-semibold" onClick={()=>{setLoading(!loading);setHisseKodu("");setIlkArama(false)}}>Getir</button>
+        <button className="bg-lime-900 border-2 border-black rounded p-2 font-semibold" onClick={()=>{setHisseKodu("");setResult([]);setData("");setIlkArama(true)}}>Temizle</button>
       </form>
     </div>
   );

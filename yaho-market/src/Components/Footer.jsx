@@ -1,6 +1,8 @@
 const Footer=()=>{
     return(
-        <div></div>
+        <div className="text-center pt-5">
+            <p>Api kullanılarak hazırlanmıştır</p>
+        </div>
     )
 }
 

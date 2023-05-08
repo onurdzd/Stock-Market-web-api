@@ -1,93 +1,78 @@
 import { useEffect, useState } from "react";
+import Headers from "./Components/Headers";
 import News from "./Components/News";
 import Arama from "./Components/Arama";
-import { TiWeatherNight } from "react-icons/ti";
-import { BsSun } from "react-icons/bs";
+import Footer from "./Components/Footer";
 
 function App() {
   const [result, setResult] = useState([]);
   const [darkMode, setDarkMode] = useState(
     JSON.parse(localStorage.getItem("theme"))
   );
+  const [ilkArama, setIlkArama] = useState(true);
   const [loading, setLoading] = useState(false);
-  const [hisseKodu,setHisseKodu]=useState("")
-
-  const localTheme = () => {
-    localStorage.setItem("theme", JSON.stringify(!darkMode));
-  };
+  const [hisseKodu, setHisseKodu] = useState("");
 
   console.log(result);
 
-  const rootClassName = () => {
-    if (document.getElementById("root").className != "dark") {
-      document.getElementById("root").classList.add("dark");
-    } else {
-      document.getElementById("root").classList.remove("dark");
-    }
-  };
-
-  useEffect(()=>{
-    if(darkMode==true){
+  useEffect(() => {
+    if (darkMode == true) {
       document.getElementById("root").classList.add("dark");
     }
-  },[darkMode])
+  }, [darkMode]);
 
-  useEffect(()=>{
-    for(let i=0;i<result.length;i++){
-      if(result[i].relatedTickers && result[i].relatedTickers!==""){
-        setHisseKodu(result[i].relatedTickers)
-        break
-      }else{
-        continue
+  useEffect(() => {
+    for (let i = 0; i < result.length; i++) {
+      if (result[i].relatedTickers && result[i].relatedTickers !== "") {
+        setHisseKodu(result[i].relatedTickers);
+        break;
+      } else {
+        continue;
       }
     }
-  },[result.length>0])
+  }, [result]);
 
   return (
-    <div className={`bg-white ${darkMode == true ? "dark" : ""}`}>
-      <div className="text-right pt-3 pr-10 text-2xl ">
-        <button
-          onClick={() => {
-            setDarkMode(!darkMode);
-            localTheme();
-            rootClassName();
-          }}
-        >
-          {darkMode == true ? (
-            <TiWeatherNight></TiWeatherNight>
-          ) : (
-            <BsSun></BsSun>
-          )}
-        </button>
-      </div>
+    <div className={`min-h-full flex flex-col justify-between  ${darkMode == true ? "dark" : ""}`}>
+      <Headers setDarkMode={setDarkMode} darkMode={darkMode}></Headers>
       <div
-        className={`flex flex-col items-center w-3/4 my-0 mx-auto ${
+        className={`flex flex-col items-center my-0 mx-auto ${
           darkMode == true ? "dark" : ""
         }`}
       >
-        <div>
-          <Arama
-            result={result}
-            setResult={setResult}
-            darkMode={darkMode}
-            loading={loading}
-            setLoading={setLoading}
-            setHisseKodu={setHisseKodu}
-          ></Arama>
-        </div>
+        <Arama
+          result={result}
+          setResult={setResult}
+          darkMode={darkMode}
+          loading={loading}
+          setLoading={setLoading}
+          setHisseKodu={setHisseKodu}
+          setIlkArama={setIlkArama}
+        ></Arama>
         {result.length > 0 && (
           <div className="mb-2">
             <span className="text-blue-700 font-semibold italic">
               Hisse Kodu:{" "}
             </span>
             <span className="italic font-semibold">
-              {result.length > 0 && hisseKodu }
+              {result.length > 0 && hisseKodu}
             </span>
           </div>
         )}
-        {loading == true ? (
-          <div className="italic font-medium">Hisse haberleri alınıyor, lütfen bekleyin...</div>
-        ) : result.length==0 ? <div className="italic font-medium">Aradığın hisse sistemde bulunmuyor veya hatalı yazım</div> : (
+        {ilkArama == true ? (
+          <div className="italic font-medium">
+            Lütfen öncelikle hisse araması yapın
+          </div>
+        ) : loading == true ? (
+          <div className="italic font-medium">
+            Hisse haberleri alınıyor, lütfen bekleyin...
+          </div>
+        ) : result.length == 0 ? (
+          <div className="italic font-medium">
+            Aradığınız hisse sistemde bulunmuyor veya hatalı yazım.Tekrar
+            deneyin.
+          </div>
+        ) : (
           <div className="mt-5 flex flex-wrap gap-10 justify-center ">
             {result.map((item, i) => (
               <div
@@ -102,6 +87,7 @@ function App() {
           </div>
         )}
       </div>
+      <Footer></Footer>
     </div>
   );
 }
