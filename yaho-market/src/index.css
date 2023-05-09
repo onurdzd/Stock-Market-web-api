@@ -4,7 +4,8 @@
 
 #root{
     width: 100vw;
-    height: max-content;
+    height: fit-content;
+    min-height: 100vh
 }
 
 .dark {
