@@ -13,7 +13,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [hisseKodu, setHisseKodu] = useState("");
 
-  console.log(result);
+  console.log(result)
 
   useEffect(() => {
     if (darkMode == true) {
@@ -22,7 +22,7 @@ function App() {
   }, [darkMode]);
 
   useEffect(() => {
-    for (let i = 0; i < result.length; i++) {
+    for (let i = 0; i < result?.length; i++) {
       if (result[i].relatedTickers && result[i].relatedTickers !== "") {
         setHisseKodu(result[i].relatedTickers);
         break;
@@ -49,13 +49,13 @@ function App() {
           setHisseKodu={setHisseKodu}
           setIlkArama={setIlkArama}
         ></Arama>
-        {result.length > 0 && (
+        {result?.length > 0 && (
           <div className="mb-2">
             <span className="text-blue-700 font-semibold italic">
               Hisse Kodu:{" "}
             </span>
             <span className="italic font-semibold">
-              {result.length > 0 && hisseKodu}
+              {result?.length > 0 && hisseKodu}
             </span>
           </div>
         )}
@@ -67,14 +67,14 @@ function App() {
           <div className="italic font-medium">
             Hisse haberleri alınıyor, lütfen bekleyin...
           </div>
-        ) : result.length == 0 ? (
+        ) : result?.length == 0 ? (
           <div className="italic font-medium">
             Aradığınız hisse sistemde bulunmuyor veya hatalı yazım.Tekrar
             deneyin.
           </div>
         ) : (
           <div className="mt-5 flex flex-wrap gap-10 justify-center ">
-            {result.map((item, i) => (
+            {result?.map((item, i) => (
               <div
                 key={i}
                 className={`my-2 text-center border-2 w-full md:w-2/5 py-5 rounded-md bg-green-100 ${
