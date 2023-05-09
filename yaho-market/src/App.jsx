@@ -3,6 +3,8 @@ import Headers from "./Components/Headers";
 import News from "./Components/News";
 import Arama from "./Components/Arama";
 import Footer from "./Components/Footer";
+import LeftNav from "./Components/LeftNav";
+import RightNav from "./Components/RightNav";
 
 function App() {
   const [result, setResult] = useState([]);
@@ -13,13 +15,14 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [hisseKodu, setHisseKodu] = useState("");
 
-  console.log(result)
+  console.log(result);
 
   useEffect(() => {
     if (darkMode == true) {
       document.getElementById("root").classList.add("dark");
     }
   }, [darkMode]);
+
 
   useEffect(() => {
     for (let i = 0; i < result?.length; i++) {
@@ -33,7 +36,13 @@ function App() {
   }, [result]);
 
   return (
-    <div className={`min-h-full flex flex-col justify-between  ${darkMode == true ? "dark" : ""}`}>
+    <div className="flex h-full">
+    <div className="flex-1  "><LeftNav></LeftNav></div>
+    <div
+      className={`flex flex-col max-w-[700px] flex-grow  ${
+        darkMode == true ? "dark" : ""
+      }`}
+    >
       <Headers setDarkMode={setDarkMode} darkMode={darkMode}></Headers>
       <div
         className={`flex flex-col items-center my-0 mx-auto max-w-[1260px] ${
@@ -48,6 +57,7 @@ function App() {
           setLoading={setLoading}
           setHisseKodu={setHisseKodu}
           setIlkArama={setIlkArama}
+          hisseKodu={hisseKodu}
         ></Arama>
         {result?.length > 0 && (
           <div className="mb-2">
@@ -73,11 +83,11 @@ function App() {
             deneyin.
           </div>
         ) : (
-          <div className="mt-5 flex flex-wrap gap-10 justify-center ">
+          <div className="mt-5 flex flex-wrap gap-5 justify-between ">
             {result?.map((item, i) => (
               <div
                 key={i}
-                className={`my-2 text-center border-2 w-full md:w-2/5 py-5 rounded-md bg-green-100 ${
+                className={`my-2 text-center border-2 md:w-2/5 py-5 rounded-md bg-green-100 ${
                   darkMode == true ? "dark" : ""
                 }`}
               >
@@ -88,6 +98,8 @@ function App() {
         )}
       </div>
       <Footer></Footer>
+    </div>
+    <div className="flex-1 h-full"><RightNav></RightNav></div>
     </div>
   );
 }
