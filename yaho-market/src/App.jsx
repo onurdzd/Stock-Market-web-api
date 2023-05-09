@@ -36,7 +36,7 @@ function App() {
     <div className={`min-h-full flex flex-col justify-between  ${darkMode == true ? "dark" : ""}`}>
       <Headers setDarkMode={setDarkMode} darkMode={darkMode}></Headers>
       <div
-        className={`flex flex-col items-center my-0 mx-auto ${
+        className={`flex flex-col items-center my-0 mx-auto max-w-[1260px] ${
           darkMode == true ? "dark" : ""
         }`}
       >
