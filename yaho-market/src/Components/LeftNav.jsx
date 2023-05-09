@@ -16,7 +16,7 @@ const LeftNav=()=>{
 //         },
 //         headers: {
 //           "X-RapidAPI-Key":
-//           import.meta.env.VITE_API,
+//           import.meta.env.VITE_VERCEL_API,
 //           "X-RapidAPI-Host": import.meta.env.VITE_MARKET_HOST,
 //         },
 //       };
