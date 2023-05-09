@@ -12,7 +12,7 @@ const RightNav = () => {
         url: import.meta.env.VITE_MARKET2_URL,
         params: { id: "markets" },
         headers: {
-          "X-RapidAPI-Key": import.meta.env.VITE_VERCEL_API,
+          "X-RapidAPI-Key": import.meta.env.VITE_API,
           "X-RapidAPI-Host": import.meta.env.VITE_MARKET2_HOST,
         },
       };
