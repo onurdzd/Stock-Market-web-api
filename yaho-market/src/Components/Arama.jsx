@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const Arama = ({ setResult ,darkMode,loading,setLoading,setHisseKodu,setIlkArama}) => {
-  const [data, setData] = useState();
+  const [data, setData] = useState("");
 
   const request = async (e) => {
     e.preventDefault();
@@ -21,37 +21,21 @@ const Arama = ({ setResult ,darkMode,loading,setLoading,setHisseKodu,setIlkArama
 
 
     //frontentden direk req:
-  //   let options = {
-  //     method: 'GET',
-  //     url: import.meta.env.VITE_VERCEL_URL,
-  //     params: {
-  //       q: data,
-  //       region: 'US'
-  //     },
-  //     headers: {
-  //       'X-RapidAPI-Key': import.meta.env.VITE_VERCEL_API,
-  //       'X-RapidAPI-Host': import.meta.env.VITE_VERCEL_HOST
-  //     }
-  //   };
+    let options = {
+      method: 'GET',
+      url: import.meta.env.VITE_VERCEL_URL,
+      params: {
+        q: data,
+        region: 'US'
+      },
+      headers: {
+        'X-RapidAPI-Key': import.meta.env.VITE_VERCEL_API,
+        'X-RapidAPI-Host': import.meta.env.VITE_VERCEL_HOST
+      }
+    };
   
-  //   try {
-  //     let response = await axios.request(options);
-  //     console.log("request atıldı",import.meta.env.VITE_VERCEL_HOST)
-  //     if(response){
-  //       setLoading(false)
-  //       setResult(response.data.news)
-  //     }else{
-  //       setLoading(false)
-  //       setResult([])
-  //     }
-  // } catch (error) {
-  //     console.error(error);
-  // }
-
-
-  //vercel için req:
-    try {
-      let response = await axios.get(`/${data}`);
+   
+      let response = await axios.request(options);
       console.log("request atıldı",import.meta.env.VITE_VERCEL_HOST)
       if(response){
         setLoading(false)
@@ -60,9 +44,7 @@ const Arama = ({ setResult ,darkMode,loading,setLoading,setHisseKodu,setIlkArama
         setLoading(false)
         setResult([])
       }
-  } catch (error) {
-      console.error(error);
-  }
+ 
 
   };
 
@@ -72,9 +54,9 @@ const Arama = ({ setResult ,darkMode,loading,setLoading,setHisseKodu,setIlkArama
       }`}>
       <form  onSubmit={(e) => request(e)}>
         <label>
-          <input placeholder="Tesla,Amazon vb" className={`border-black border-2 block w-full mb-2 rounded p-1 text-center font-medium italic ${
+          <input placeholder="Tesla,Amazon vb" value={data} className={`border-black border-2 block w-full mb-2 rounded p-1 text-center font-medium italic ${
       darkMode == true ? "inputdark" : ""
-    }`} onChange={(e) => setData(e.target.value)} value={data}></input>
+    }`} onChange={(e) => setData(e.target.value)} ></input>
         </label>
         <button type="submit" className="bg-orange-600 border-2 border-black rounded mr-2 p-2 font-semibold" onClick={()=>{setLoading(!loading);setHisseKodu("");setIlkArama(false)}}>Getir</button>
         <button type="button" className="bg-lime-800 border-2 border-black rounded p-2 font-semibold" onClick={()=>{setHisseKodu("");setResult([]);setData("");setIlkArama(true)}}>Temizle</button>
