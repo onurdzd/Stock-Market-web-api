@@ -12,7 +12,7 @@ const RightNav = () => {
         url: import.meta.env.VITE_MARKET2_URL,
         params: { id: "markets" },
         headers: {
-          "X-RapidAPI-Key": import.meta.env.VITE_API,
+          "X-RapidAPI-Key": import.meta.env.VITE_VERCEL_API,
           "X-RapidAPI-Host": import.meta.env.VITE_MARKET2_HOST,
         },
       };
@@ -34,9 +34,9 @@ const RightNav = () => {
         Günün öne çıkan haberleri
       </h1>
       {news?.map((item, id) => (
-        <>
+        <div key={id} className="flex flex-col items-center">
             {item?.stories.length > 0 && (
-              <div key={id} className="mb-3 border rounded w-1/2">
+              <div className="mb-3 border rounded w-3/5">
                 <div>{item?.stories[0].title}</div>
                 <div className="text-blue-700 font-semibold hover:text-slate-500">
                   <a href={item?.stories[0].shortURL}>Haber Linki</a>
@@ -53,7 +53,7 @@ const RightNav = () => {
                 </div>
               </div>
             )}
-        </>
+        </div>
       ))}
     </div>
   );
