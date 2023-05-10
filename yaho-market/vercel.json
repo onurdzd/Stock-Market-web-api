@@ -2,7 +2,7 @@
     "routes":[
         {
             "src":"/:data",
-            "dest":"./api/vercel-yaho-router.js"
+            "dest":"/api/vercel-yaho-router.js"
         }
     ]
 }

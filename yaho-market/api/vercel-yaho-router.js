@@ -1,6 +1,7 @@
 import axios from "axios";
 
 module.exports =async (req,res)=>{
+    console.log("vercel router req atıldı")
     if(req.method === "GET"){
         let options = {
             method: 'GET',
