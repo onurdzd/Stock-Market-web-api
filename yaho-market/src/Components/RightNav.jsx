@@ -5,23 +5,23 @@ import gpt from "../assets/gpt.jpg";
 const RightNav = () => {
   const [news, setNews] = useState([]);
 
-  useEffect(() => {
-    async function fetchMyAPI() {
-      let options3 = {
-        method: "GET",
-        url: import.meta.env.VITE_MARKET2_URL,
-        params: { id: "markets" },
-        headers: {
-          "X-RapidAPI-Key": import.meta.env.VITE_VERCEL_API,
-          "X-RapidAPI-Host": import.meta.env.VITE_MARKET2_HOST,
-        },
-      };
-        const response = await axios.request(options3);
-        console.log(response);
-        setNews(response.data.modules);
-    }
-    fetchMyAPI();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchMyAPI() {
+  //     let options3 = {
+  //       method: "GET",
+  //       url: import.meta.env.VITE_MARKET2_URL,
+  //       params: { id: "markets" },
+  //       headers: {
+  //         "X-RapidAPI-Key": import.meta.env.VITE_VERCEL_API,
+  //         "X-RapidAPI-Host": import.meta.env.VITE_MARKET2_HOST,
+  //       },
+  //     };
+  //       const response = await axios.request(options3);
+  //       console.log(response);
+  //       setNews(response.data.modules);
+  //   }
+  //   fetchMyAPI();
+  // }, []);
 
   return (
     <div className="text-center pt-5 flex flex-col items-center">
