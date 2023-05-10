@@ -21,17 +21,14 @@ const Arama = ({ setResult ,darkMode,loading,setLoading,setHisseKodu,setIlkArama
 
     let options = {
       method: 'GET',
-      // url: import.meta.env.VITE_VERCEL_URL,
-      url: process.env.VITE_VERCEL_URL,
+      url: import.meta.env.VITE_VERCEL_URL,
       params: {
         q: data,
         region: 'US'
       },
       headers: {
-        // 'X-RapidAPI-Key': import.meta.env.VITE_VERCEL_API,
-        'X-RapidAPI-Key': process.env.VITE_VERCEL_API,
-        // 'X-RapidAPI-Host': import.meta.env.VITE_VERCEL_HOST
-        'X-RapidAPI-Host': process.env.VITE_VERCEL_HOST
+        'X-RapidAPI-Key': import.meta.env.VITE_VERCEL_API,
+        'X-RapidAPI-Host': import.meta.env.VITE_VERCEL_HOST
       }
     };
   
