@@ -16,14 +16,9 @@ const RightNav = () => {
           "X-RapidAPI-Host": import.meta.env.VITE_MARKET2_HOST,
         },
       };
-
-      try {
         const response = await axios.request(options3);
         console.log(response);
         setNews(response.data.modules);
-      } catch (error) {
-        console.error(error);
-      }
     }
     fetchMyAPI();
   }, []);

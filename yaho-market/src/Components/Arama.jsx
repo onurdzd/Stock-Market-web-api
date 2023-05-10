@@ -44,7 +44,6 @@ const Arama = ({ setResult ,darkMode,loading,setLoading,setHisseKodu,setIlkArama
         setLoading(false)
         setResult([])
       }
- 
 
   };
 
