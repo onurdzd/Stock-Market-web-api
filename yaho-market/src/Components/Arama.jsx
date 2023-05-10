@@ -34,6 +34,7 @@ const Arama = ({ setResult ,darkMode,loading,setLoading,setHisseKodu,setIlkArama
   
     try {
       let response = await axios.request(options);
+      console.log("request atıldı",import.meta.env.VITE_VERCEL_HOST)
       if(response){
         setLoading(false)
         setResult(response.data.news)
