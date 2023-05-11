@@ -4,6 +4,7 @@ import axios from "axios"
 const LeftNav=()=>{
   const [marketData,setMarketData] =useState({})
 
+//localhost req:
 //     useEffect(() => {
 //     async function fetchMyAPI() {
 //       let options2 = {
@@ -31,6 +32,28 @@ const LeftNav=()=>{
 //     }
 //     fetchMyAPI();
 //   }, []);
+
+    useEffect(() => {
+    async function fetchMyAPI() {
+      let options2 = {
+        method: "GET",
+        url: import.meta.env.VITE_MARKET_URL,
+        params: {
+          symbol: "EUR/USD,NDX",
+          format: "json",
+          outputsize: "30",
+        },
+        headers: {
+          "X-RapidAPI-Key":
+          import.meta.env.VITE_VERCEL_API,
+          "X-RapidAPI-Host": import.meta.env.VITE_MARKET_HOST,
+        },
+      };
+        const response =await axios.request(options2);
+        setMarketData(response.data);
+    }
+    fetchMyAPI();
+  }, []);
 
 
     return(
