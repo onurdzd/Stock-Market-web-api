@@ -25,8 +25,8 @@ const RightNav = () => {
 
   return (
     <div className="text-center pt-5 flex flex-col items-center ">
-      <h1 className="text-yellow-500 text-xl font-serif ">
-        Günün öne çıkan haberleri
+      <h1 className="text-yellow-500 text-xl font-serif pb-5">
+        Öne Çıkan Haberler
       </h1>
       {news?.map((item, id) => (
         <div key={id} className="flex flex-col items-center w-3/5 ">
