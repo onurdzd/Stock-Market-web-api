@@ -24,14 +24,14 @@ const RightNav = () => {
   }, []);
 
   return (
-    <div className="text-center pt-5 flex flex-col items-center">
-      <h1 className="text-yellow-500 text-xl font-serif pb-5">
+    <div className="text-center pt-5 flex flex-col items-center h-full">
+      <h1 className="text-yellow-500 text-xl font-serif ">
         Günün öne çıkan haberleri
       </h1>
       {news?.map((item, id) => (
-        <div key={id} className="flex flex-col items-center">
-            {item?.stories.length > 8 && (
-              <div className="mb-3 border rounded w-3/5">
+        <div key={id} className="flex flex-col items-center w-3/5 h-full">
+            {item?.stories.length > 9 && (
+              <div className="mb-3 border rounded ">
                 <div>{item?.stories[0].title}</div>
                 <div className="text-blue-700 font-semibold hover:text-slate-500">
                   <a href={item?.stories[0].shortURL}>Haber Linki</a>
