@@ -44,8 +44,7 @@ const LeftNav=()=>{
           outputsize: "30",
         },
         headers: {
-          "X-RapidAPI-Key":
-          import.meta.env.VITE_VERCEL_API,
+          "X-RapidAPI-Key":import.meta.env.VITE_VERCEL_API,
           "X-RapidAPI-Host": import.meta.env.VITE_MARKET_HOST,
         },
       };

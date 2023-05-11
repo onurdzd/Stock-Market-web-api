@@ -17,7 +17,6 @@ const RightNav = () => {
         },
       };
         let response = await axios.request(options3);
-        console.log(response);
         setNews(response.data.modules);
     }
     fetchMyAPI();
