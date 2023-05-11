@@ -22,12 +22,12 @@ function App() {
   }, [darkMode]);
 
   return (
-    <div className="flex h-screen">
+    <div className="flex ">
       <div className="flex-1  ">
         <LeftNav></LeftNav>
       </div>
       <div
-        className={`flex flex-col max-w-[700px] flex-grow  ${
+        className={`flex flex-col max-w-[700px] flex-grow ${
           darkMode == true ? "dark" : ""
         }`}
       >

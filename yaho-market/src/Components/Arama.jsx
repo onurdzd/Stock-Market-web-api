@@ -60,7 +60,7 @@ const Arama = ({ result,setResult ,darkMode,loading,setLoading,setHisseKodu,hiss
   };
 
   return (
-    <div  className={`flex flex-col items-center my-0 mx-auto max-w-[1260px] flex-grow ${
+    <div  className={`flex flex-col items-center my-0 mx-auto max-w-[1260px] ${
       darkMode == true ? "dark" : ""
     }`}>
     <div className={`mb-5 text-center font-roboto min-w-[300px] ${
