@@ -5,23 +5,23 @@ import gpt from "../assets/gpt.jpg";
 const RightNav = () => {
   const [news, setNews] = useState([]);
 
-  // useEffect(() => {
-  //   async function fetchMyAPI() {
-  //     let options3 = {
-  //       method: "GET",
-  //       url: import.meta.env.VITE_MARKET2_URL,
-  //       params: { id: "markets" },
-  //       headers: {
-  //         "X-RapidAPI-Key": import.meta.env.VITE_VERCEL_API,
-  //         "X-RapidAPI-Host": import.meta.env.VITE_MARKET2_HOST,
-  //       },
-  //     };
-  //       const response = await axios.request(options3);
-  //       console.log(response);
-  //       setNews(response.data.modules);
-  //   }
-  //   fetchMyAPI();
-  // }, []);
+  useEffect(() => {
+    async function fetchMyAPI() {
+      let options3 = {
+        method: "GET",
+        url: import.meta.env.VITE_MARKET2_URL,
+        params: { id: "markets" },
+        headers: {
+          "X-RapidAPI-Key": import.meta.env.VITE_VERCEL_API,
+          "X-RapidAPI-Host": import.meta.env.VITE_MARKET2_HOST,
+        },
+      };
+        let response = await axios.request(options3);
+        console.log(response);
+        setNews(response.data.modules);
+    }
+    fetchMyAPI();
+  }, []);
 
   return (
     <div className="text-center pt-5 flex flex-col items-center">
@@ -30,7 +30,7 @@ const RightNav = () => {
       </h1>
       {news?.map((item, id) => (
         <div key={id} className="flex flex-col items-center">
-            {item?.stories.length > 0 && (
+            {item?.stories.length > 8 && (
               <div className="mb-3 border rounded w-3/5">
                 <div>{item?.stories[0].title}</div>
                 <div className="text-blue-700 font-semibold hover:text-slate-500">

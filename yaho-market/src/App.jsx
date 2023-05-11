@@ -40,7 +40,6 @@ function App() {
           setLoading={setLoading}
           setHisseKodu={setHisseKodu}
           hisseKodu={hisseKodu}
-          hisseKodu={hisseKodu}
         ></Arama>
         <Footer></Footer>
       </div>
