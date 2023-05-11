@@ -33,7 +33,7 @@ const RightNav = () => {
             {item?.stories.length > 9 && (
               <div className="mb-3 border rounded ">
                 <div>{item?.stories[0].title}</div>
-                <div className="text-blue-700 font-semibold hover:text-slate-500">
+                <div className="text-[#cfc246] hover:text-slate-500">
                   <a href={item?.stories[0].shortURL}>Haber Linki</a>
                 </div>
                 <div className="text-center">

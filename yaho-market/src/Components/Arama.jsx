@@ -73,7 +73,7 @@ const Arama = ({ result,setResult ,darkMode,loading,setLoading,setHisseKodu,hiss
     }`} onChange={(e) => setData(e.target.value)} ></input>
         </label>
         <button type="submit" className="bg-orange-600 border-2 border-black rounded mr-2 p-2 font-semibold" onClick={()=>{setLoading(!loading);setHisseKodu("");setIlkArama(false)}}>Getir</button>
-        <button type="button" className="bg-lime-800 border-2 border-black rounded p-2 font-semibold" onClick={()=>{setHisseKodu("");setResult([]);setData("");setIlkArama(true)}}>Temizle</button>
+        <button type="button" className="bg-[#cfc246] border-2 border-black rounded p-2 font-semibold" onClick={()=>{setHisseKodu("");setResult([]);setData("");setIlkArama(true)}}>Temizle</button>
       </form>
     </div>
     {result?.length > 0 && (
