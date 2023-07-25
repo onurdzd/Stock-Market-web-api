@@ -8,13 +8,7 @@
     height:fit-content
 }
 
-.dark {
-    @apply bg-slate-900 text-zinc-50;
-    @apply text-white
-  }
+body{
+    width: 100vw;
+}
 
- .inputdark{
-    @apply text-white;
-    @apply bg-slate-600 text-zinc-50;
-    @apply border-2 border-white
- } 

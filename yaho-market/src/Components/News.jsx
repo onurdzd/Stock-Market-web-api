@@ -20,15 +20,15 @@ const News = ({ item }) => {
 
   return (
     <>
-      <div className="text-xs mb-1 font-medium italic">{timeCheck(providerPublishTime)}</div>
+      <div className="text-xs mb-1 font-medium italic text-black">{timeCheck(providerPublishTime)}</div>
       <div className="text-blue-700 font-semibold hover:text-slate-500">
         <a href={link}>Haber Linki</a>
       </div>
       <div>
         <span className="text-blue-700 font-semibold italic">Yayınlayan: </span>
-        <span className="italic">{publisher}</span>
+        <span className="italic text-black">{publisher}</span>
       </div>
-      <div className="font-bold">{title}</div>
+      <div className="font-bold text-black">{title}</div>
       <div className="max-w-md my-2 mx-auto">
         <img
           className="w-full h-full"

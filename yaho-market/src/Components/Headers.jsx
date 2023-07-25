@@ -1,7 +1,12 @@
 import { TiWeatherNight } from "react-icons/ti";
 import { BsSun } from "react-icons/bs";
+import { useEffect, useState } from "react";
 
-const Headers = ({ darkMode, setDarkMode }) => {
+const Headers = () => {
+  const [darkMode, setDarkMode] = useState(
+    JSON.parse(localStorage.getItem("theme"))
+  );
+
   const rootClassName = () => {
     if (document.getElementById("root").className != "dark") {
       document.getElementById("root").classList.add("dark");
@@ -9,6 +14,12 @@ const Headers = ({ darkMode, setDarkMode }) => {
       document.getElementById("root").classList.remove("dark");
     }
   };
+
+  useEffect(() => {
+    if (darkMode == true) {
+      document.getElementById("root").classList.add("dark");
+    }
+  }, [darkMode]);
 
   const localTheme = () => {
     localStorage.setItem("theme", JSON.stringify(!darkMode));
@@ -30,10 +41,7 @@ const Headers = ({ darkMode, setDarkMode }) => {
             <BsSun></BsSun>
           )}
         </button>
-      </div>
-      <h1 className="font-bold italic text-orange-500 pt-5 mb-10 text-6xl text-center">
-        Hisse Haberleri
-      </h1>
+      </div>     
     </div>
   );
 };

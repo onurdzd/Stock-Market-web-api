@@ -16,39 +16,44 @@ const RightNav = () => {
           "X-RapidAPI-Host": import.meta.env.VITE_MARKET2_HOST,
         },
       };
-        let response = await axios.request(options3);
-        setNews(response.data.modules);
+      let response = await axios.request(options3);
+      setNews(response.data.modules);
     }
     fetchMyAPI();
   }, []);
 
   return (
-    <div className="text-center pt-5 flex flex-col items-center ">
-      <h1 className="text-yellow-500 text-xl font-serif pb-5">
+    <div className="flex-1 pt-2 mx-auto">
+      <h1 className="text-yellow-500 text-xl font-serif sm:pb-2 text-center">
         Öne Çıkan Haberler
       </h1>
-      {news?.map((item, id) => (
-        <div key={id} className="flex flex-col items-center w-3/5 ">
-            {item?.stories.length > 9 && (
-              <div className="mb-3 border rounded ">
-                <div>{item?.stories[0].title}</div>
-                <div className="text-[#cfc246] hover:text-slate-500">
-                  <a href={item?.stories[0].shortURL}>Haber Linki</a>
+      <div className=" max-h-[600px] overflow-auto text-center pt-2">
+        <div className="w-4/5 mx-auto max-w-[300px]">
+          {news?.map((item, id) => (
+            <div key={id} className="mb-3">
+              {item?.stories.length > 9 && (
+                <div className="border rounded">
+                  <div>{item?.stories[0].title}</div>
+                  <div className="text-[#cfc246] hover:text-slate-500">
+                    <a href={item?.stories[0].shortURL}>Haber Linki</a>
+                  </div>
+                  <div className="text-center">
+                    <img
+                      className="mx-auto"
+                      src={
+                        item?.stories[0].thumbnailImage
+                          ? item?.stories[0].thumbnailImage
+                          : gpt
+                      }
+                      alt="baslik"
+                    ></img>
+                  </div>
                 </div>
-                <div className="text-center">
-                  <img
-                    src={
-                      item?.stories[0].thumbnailImage
-                        ? item?.stories[0].thumbnailImage
-                        : gpt
-                    }
-                    alt="baslik"
-                  ></img>
-                </div>
-              </div>
-            )}
+              )}
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 };
