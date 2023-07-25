@@ -12,10 +12,11 @@ function App() {
   const [hisseKodu, setHisseKodu] = useState("");
 
   return (
-    <div className=" dark:bg-slate-900 dark:text-zinc-50">
+    <div className=" dark:bg-slate-900 dark:text-zinc-50 ">
+      <div className="container mx-auto">
       <Headers ></Headers>
       <MainNav></MainNav>
-      <div className="md:flex md:flex-row flex flex-col gap-5">
+      <div className="md:flex md:flex-row flex flex-col gap-5 ">
           <LeftNav></LeftNav>
           <Arama
             result={result}
@@ -27,7 +28,7 @@ function App() {
           ></Arama>
           <RightNav></RightNav>
       </div>
-          <Footer></Footer>
+          <Footer></Footer></div>
     </div>
   );
 }
