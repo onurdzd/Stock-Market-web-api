@@ -54,7 +54,7 @@ const RightNav = () => {
             </div>
           ))} 
         </div>
-      </div>: <div className="text-center text-xl dark:text-white text-black mt-5">Yükleniyor...</div>}
+      </div>: <div className="text-center text-xl dark:text-white text-black mt-5 sm:min-h-[600px] min-h-[250px]">Yükleniyor...</div>}
     </div>
   );
 };

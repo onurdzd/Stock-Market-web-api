@@ -1,6 +1,6 @@
 const Footer=()=>{
     return(
-        <div className="text-center pt-5">
+        <div className="text-center pt-5 pb-5">
             <p>Api kullanılarak hazırlanmıştır</p>
         </div>
     )
