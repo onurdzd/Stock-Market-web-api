@@ -80,7 +80,7 @@ const LeftNav=()=>{
 
     return(
       <div className="flex-1 text-center">
-            <h2 className="text-yellow-500 text-xl font-serif ">Market Data</h2>
+            <h2 className="text-yellow-500 text-xl font-serif pb-3">Market Data</h2>
         <div className=" pt-2 sm:max-w-[400px] mx-auto max-h-[200px] sm:max-h-[600px] overflow-auto">
             <div className="text-blue-400 text-base font-serif pt-5">EURUSD:  {marketData["EUR/USD"] ? marketData["EUR/USD"].price.slice(0,5) :1.09510}</div>
             <div className="text-blue-400 text-base font-serif ">NASDAQ:  { marketData["NDX"] ? marketData["NDX"].price.slice(0,5) :13291.291}</div>
