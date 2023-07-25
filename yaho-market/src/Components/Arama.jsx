@@ -64,7 +64,7 @@ const Arama = ({
   };
 
   return (
-    <div className="flex-1 mx-auto flex flex-col justify-center ">
+    <div className="flex-1 mx-auto flex flex-col justify-center sm:min-h-[650px]">
       <h2 className="text-center mb-1">Aramak istediğiniz hisseyi girin:</h2>
       <div className="mb-5 text-center font-roboto min-w-[300px] ">
         <form onSubmit={(e) => request(e)}>
