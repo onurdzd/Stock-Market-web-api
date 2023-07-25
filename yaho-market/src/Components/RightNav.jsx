@@ -27,6 +27,7 @@ const RightNav = () => {
       <h1 className="text-yellow-500 text-xl font-serif sm:pb-2 text-center">
         Öne Çıkan Haberler
       </h1>
+      {news?.length>0 ? 
       <div className="sm:min-h-[650px] max-h-[600px] overflow-auto text-center pt-2">
         <div className="w-4/5 mx-auto max-w-[300px]">
           {news?.map((item, id) => (
@@ -51,9 +52,9 @@ const RightNav = () => {
                 </div>
               )}
             </div>
-          ))}
+          ))} 
         </div>
-      </div>
+      </div>: <div className="text-center text-xl dark:text-white text-black mt-5">Yükleniyor...</div>}
     </div>
   );
 };
