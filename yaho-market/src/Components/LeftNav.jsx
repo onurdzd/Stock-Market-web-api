@@ -66,7 +66,6 @@ const LeftNav=()=>{
         setMarketData(response.data);
         const response2 = await axios.request(options2);
         setMarketData2(response2.data);
-        console.log(marketData2.result)
       } catch (error) {
         console.error(error);
       }
