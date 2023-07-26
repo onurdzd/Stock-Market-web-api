@@ -33,7 +33,7 @@ const RightNav = () => {
           {news?.map((item, id) => (
             <div key={id} className="mb-3">
               {item?.stories.length > 9 && (
-                <div className="border rounded">
+                <div className="border-2 border-black dark:border-[#7f7f7f] rounded">
                   <div>{item?.stories[0].title}</div>
                   <div className="text-[#cfc246] hover:text-slate-500">
                     <a href={item?.stories[0].shortURL}>Haber Linki</a>

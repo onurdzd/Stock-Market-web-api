@@ -6,7 +6,7 @@ export default function MainNav() {
        Market News
       </h1>
       </header>
-      <nav className="mb-5 dark:bg-teal-800 md:max-w-[1240px] rounded-full bg-slate-300 mx-auto">
+      <nav className="mb-5 dark:bg-[#7f7f7f] md:max-w-[1240px] rounded-full bg-slate-300 mx-auto">
         <ul className="flex justify-evenly">
             <li className="text-xl font-bold p-2 hover:text-blue-700"><a href="">Home</a></li>
             <li className="text-xl font-bold p-2 hover:text-blue-700"><a href="">Blog</a></li>

@@ -81,11 +81,12 @@ const LeftNav=()=>{
     return(
       <div className="flex-1 text-center">
             <h2 className="text-yellow-500 text-xl font-serif pb-3">Market Data</h2>
-        <div className=" pt-2 sm:max-w-[400px] mx-auto max-h-[200px] sm:max-h-[600px] overflow-auto">
-            <div className="text-blue-400 text-base font-serif pt-5">EURUSD:  {marketData["EUR/USD"] ? marketData["EUR/USD"].price.slice(0,5) :1.09510}</div>
-            <div className="text-blue-400 text-base font-serif ">NASDAQ:  { marketData["NDX"] ? marketData["NDX"].price.slice(0,5) :13291.291}</div>
+            <div><input placeholder="Parite ismi" className="dark:border-[#7f7f7f] max-w-[150px] mx-auto border-black border-2 block w-full mb-2 rounded p-1 text-center font-medium italic text-black"></input></div>
+        <div className="pt-2 sm:max-w-[400px] mx-auto max-h-[200px] sm:max-h-[300px] overflow-auto">
+            <div className="w-[90%] mx-auto hover:scale-105 text-black dark:text-[#7f7f7f] text-base font-bold font-sans pb-2">EURUSD:  {marketData["EUR/USD"] ? marketData["EUR/USD"].price.slice(0,5) :1.09510}</div>
+            <div className="w-[90%] mx-auto hover:scale-105 text-black dark:text-[#7f7f7f] text-base font-bold font-sans pb-2">NASDAQ:  { marketData["NDX"] ? marketData["NDX"].price.slice(0,5) :13291.291}</div>
             {exoticCurrencies?.map((item,index)=>
-              <div className="text-blue-400 text-base font-serif" key={index}>{item.currency+" : " + item.price}</div>)}
+              <div className="w-[90%] mx-auto hover:scale-105 text-black dark:text-[#7f7f7f] text-base font-bold font-sans pb-2" key={index}>{item.currency+" : " + item.price}</div>)}
         </div>
         </div>
     )

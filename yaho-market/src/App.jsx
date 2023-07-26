@@ -12,7 +12,7 @@ function App() {
   const [hisseKodu, setHisseKodu] = useState("");
 
   return (
-    <div className=" dark:bg-slate-900 dark:text-zinc-50 font-roboto ">
+    <div className=" dark:bg-[#111111] dark:text-[#ffffff] font-roboto ">
       <div className="container mx-auto">
       <Headers ></Headers>
       <MainNav></MainNav>

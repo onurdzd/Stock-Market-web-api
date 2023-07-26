@@ -64,21 +64,19 @@ const Arama = ({
   };
 
   return (
-    <div className="flex-1 mx-auto flex flex-col justify-center sm:min-h-[650px] sm:px-20">
+    <div className="flex-1 mx-auto flex flex-col justify-center sm:min-h-[700px] sm:px-20">
       <h2 className="text-center mb-1">Aramak istediğiniz hisseyi girin:</h2>
-      <div className="mb-5 text-center font-roboto min-w-[300px] ">
-        <form onSubmit={(e) => request(e)}>
-          <label>
+      <div className="mb-2 text-center font-roboto min-w-[200px] ">
+        <form onSubmit={(e) => request(e)} className="w-full">
             <input
               placeholder="Tesla,Amazon vb"
               value={data}
-              className="max-w-[300px] mx-auto border-black border-2 block w-full mb-2 rounded p-1 text-center font-medium italic text-black"
+              className="dark:border-[#7f7f7f] max-w-[300px] mx-auto border-black border-2 block w-full mb-2 rounded p-1 text-center font-medium italic text-black"
               onChange={(e) => setData(e.target.value)}
             ></input>
-          </label>
           <button
             type="submit"
-            className="bg-orange-600 border-2 border-black rounded mr-2 p-2 font-semibold"
+            className="min-w-[93px] bg-[#6ba945] border-2 border-black rounded mr-2 py-2 px-4 font-semibold hover:scale-105 hover:bg-[#479219]"
             onClick={() => {
               setLoading(!loading);
               setHisseKodu("");
@@ -89,7 +87,7 @@ const Arama = ({
           </button>
           <button
             type="button"
-            className="bg-[#cfc246] border-2 border-black rounded p-2 font-semibold"
+            className="bg-[#8f8282] border-2 border-black rounded py-2 px-4 font-semibold hover:scale-105 hover:bg-[#323431]"
             onClick={() => {
               setHisseKodu("");
               setResult([]);
@@ -115,15 +113,15 @@ const Arama = ({
       </div>
       <div className="flex flex-col items-center my-0 mx-auto max-w-[700px] ">
         {ilkArama == true ? (
-          <div className="italic font-medium">
+          <div className="italic font-medium text-center">
             Lütfen öncelikle hisse araması yapın
           </div>
         ) : loading == true ? (
-          <div className="italic font-medium">
+          <div className="italic font-medium text-center">
             Hisse haberleri alınıyor, lütfen bekleyin...
           </div>
         ) : result?.length == 0 ? (
-          <div className="italic font-medium">
+          <div className="italic font-medium text-center">
             Aradığınız hisse sistemde bulunmuyor veya hatalı yazım.Tekrar
             deneyin.
           </div>
