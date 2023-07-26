@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import News from "./News";
+import {BsSearch} from "react-icons/bs"
 
 const Arama = ({
   result,
@@ -68,12 +69,12 @@ const Arama = ({
       <h2 className="text-center mb-1">Aramak istediğiniz hisseyi girin:</h2>
       <div className="mb-2 text-center font-roboto min-w-[200px] ">
         <form onSubmit={(e) => request(e)} className="w-full">
-            <input
-              placeholder="Tesla,Amazon vb"
+        <div className="flex items-center justify-center gap-1"><BsSearch></BsSearch><input
+              placeholder="Hisse ismini girin"
               value={data}
-              className="dark:border-[#7f7f7f] max-w-[300px] mx-auto border-black border-2 block w-full mb-2 rounded p-1 text-center font-medium italic text-black"
+              className="dark:border-[#7f7f7f] max-w-[300px]  border-black border-2 block w-full mb-2 rounded p-1 text-center font-medium italic text-black"
               onChange={(e) => setData(e.target.value)}
-            ></input>
+            ></input></div>
           <button
             type="submit"
             className="min-w-[93px] bg-[#6ba945] border-2 border-black rounded mr-2 py-2 px-4 font-semibold hover:scale-105 hover:bg-[#479219]"

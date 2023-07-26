@@ -28,7 +28,7 @@ const RightNav = () => {
         Öne Çıkan Haberler
       </h2>
       {news?.length>0 ? 
-      <div className=" max-h-[600px] overflow-auto text-center pt-2">
+      <div className=" max-h-[650px] overflow-auto text-center pt-2">
         <div className="w-4/5 mx-auto max-w-[300px]">
           {news?.map((item, id) => (
             <div key={id} className="mb-3">
