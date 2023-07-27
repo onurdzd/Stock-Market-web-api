@@ -111,7 +111,7 @@ const LeftNav = () => {
         ></input>
       </div>
       <div className="pt-3 sm:min-h-[200px] sm:max-w-[400px] mx-auto max-h-[200px] sm:max-h-[300px] overflow-auto">
-        {exoticCurrencies.length == 0 ? (
+        {Object.keys(marketData2).length==0 ? (
           <div className="text-xl dark:text-[#7f7f7f]">Yükleniyor...</div>
         ) : ( filteredCurrencies?.length>0 ? 
           filteredCurrencies?.map((item, index) => (
