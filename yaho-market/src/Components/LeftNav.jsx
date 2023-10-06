@@ -78,8 +78,8 @@ const LeftNav = () => {
 
   for (let i in marketData2.result) {
     exoticCurrencies.push({
-      currency: marketData2.result[i].symbol,
-      price: marketData2.result[i].last.slice(0, 5),
+      currency: marketData2?.result[i].symbol,
+      price: marketData2?.result[i].last?.slice(0, 5),
     });
   }
  
